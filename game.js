@@ -8,28 +8,9 @@ $(document).ready(function () {
 	var assetsLoaded = 0;
 
 	for (var i = 0; i < 1; i++) {
-		blocks.push(new Enviroment(0, 568, 16, 16));
+		blocks.push(new Brick(0, 520, 16, 16));
 		blocks[i].image.src = blocks[i].source;
 	}
-	
-		
-	//enviroment.image.addEventListener("load", loadHandler, false);
-	//assetsToLoad.push(enviroment)
-
-	/*var block = new Image();
-	block.addEventListener("load", loadHandler, false);
-	block.src = "images/blocks.png";
-	assetsToLoad.push(block);
-
-	var title = new Image();
-	title.addEventListener("load", loadHandler, false);
-	title.src = "images/title.png";
-	assetsToLoad.push(title);
-
-	var transition = new Image();
-	transition.addEventListener("load", loadHandler, false);
-	transition.src = "images/transition.png";
-	assetsToLoad.push(transition);*/
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -121,14 +102,13 @@ $(document).ready(function () {
 
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
-
 		for (var i = 0; i < blocks.length; i++) {
-			var j = 16;
+			var j = 40;
 			for (var l = 0; l < 50; l++) {
-				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y, blocks[i].width, blocks[i].height);
+				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y, blocks[i].width*2.5, blocks[i].height*2.5);
 			}
 			for (var l = 0; l < 50; l++) {
-				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y + j, blocks[i].width, blocks[i].height);
+				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y + j, blocks[i].width*2.5, blocks[i].height*2.5);
 			}
 		}
 	}
