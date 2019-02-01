@@ -7,6 +7,8 @@ $(document).ready(function () {
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 
+	var goomba = new Goomba(context);
+
 	for (var i = 0; i < 1; i++) {
 		blocks.push(new Enviroment(0, 568, 16, 16));
 		blocks[i].image.src = blocks[i].source;
@@ -121,7 +123,7 @@ $(document).ready(function () {
 
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
-
+		goomba.Render(); 
 		for (var i = 0; i < blocks.length; i++) {
 			var j = 16;
 			for (var l = 0; l < 50; l++) {
