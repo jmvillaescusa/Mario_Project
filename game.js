@@ -105,7 +105,7 @@ $(document).ready(function () {
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
-		goomba.Render(); 
+		 
 
 		for (var i = 0; i < blocks.length; i++) {
 			var j = 40;
@@ -116,5 +116,7 @@ $(document).ready(function () {
 				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y + j, blocks[i].width*2.5, blocks[i].height*2.5);
 			}
 		}
+
+		goomba.Render();
 	}
 });

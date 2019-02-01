@@ -10,5 +10,7 @@ var Brick = (function (x, y, width, height) {
 	this.image = new Image();
 	this.source = "images/enviroment.png";
 
-	this.Render()
+	this.Render = function () {
+
+	}
 });
