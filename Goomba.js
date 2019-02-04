@@ -6,8 +6,8 @@ var Goomba = (function (context) {
 	this.sourceHeight = 16;
 	this.width = 16;
 	this.height= 16;
-	this.x = 0;
-	this.y = 0;
+	this.x = 100;
+	this.y = 480;
 	this.vx  = 0;
 	this.vy = 0;
 

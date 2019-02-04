@@ -99,8 +99,8 @@ $(document).ready(function () {
 			if (goomba.x > context.canvas.width * 0) {
 				goomba.x -= 5
 			}
-			else if (goomba.x >= context.canvas.width * 0) {
-				goomba.x = (context.canvas.width * 0);
+			else if (goomba.x < context.canvas.width * 0) {
+				goomba.x = (context.canvas.width * 0 + 100);
 			}
 		}
 		if (pressRight && !pressLeft) {
