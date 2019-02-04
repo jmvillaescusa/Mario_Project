@@ -3,16 +3,12 @@ $(document).ready(function () {
 	var context = canvas.get(0).getContext("2d");
 
 	var sprites = [];
-	var blocks = [];
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 
 	var goomba = new Goomba(context);
-
-	for (var i = 0; i < 1; i++) {
-		blocks.push(new Brick(0, 520, 16, 16));
-		blocks[i].image.src = blocks[i].source;
-	}
+	var level = new Enviroment(context);
+	var background = new Background(context);
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -99,24 +95,34 @@ $(document).ready(function () {
 	function Update() {
 		requestAnimationFrame(Update, canvas);
 
+		if (pressLeft && !pressRight) {
+			if (goomba.x > context.canvas.width * 0) {
+				goomba.x -= 5
+			}
+			else if (goomba.x >= context.canvas.width * 0) {
+				goomba.x = (context.canvas.width * 0);
+			}
+		}
+		if (pressRight && !pressLeft) {
+			if (goomba.x >= context.canvas.width * 0.49) {
+				background.x -= 5;
+				level.x -= 5;
+			}
+			else {
+				goomba.x += 5;
+			}
+		}
+		
+		//console.log(goomba.x + " - " + context.canvas.width / 2);
+
 		Render();
 	}
 
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 
-		 
-
-		for (var i = 0; i < blocks.length; i++) {
-			var j = 40;
-			for (var l = 0; l < 50; l++) {
-				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y, blocks[i].width*2.5, blocks[i].height*2.5);
-			}
-			for (var l = 0; l < 50; l++) {
-				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y + j, blocks[i].width*2.5, blocks[i].height*2.5);
-			}
-		}
-
+		background.Render();
+		level.Render();
 		goomba.Render();
 	}
 });
