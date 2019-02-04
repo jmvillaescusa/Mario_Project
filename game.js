@@ -8,9 +8,9 @@ $(document).ready(function () {
 
 
 	var goomba = new Goomba(context, 0, 600 -48);
+	var goomba = new Goomba(context);
 	var level = new Enviroment(context);
 	var background = new Background(context);
-
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -114,11 +114,12 @@ $(document).ready(function () {
 				goomba.x += 5;
 			}
 		}
+
 		
 		console.log(goomba.x + " - " + context.canvas.width / 2);
 
-		setTimeout(Update, 666);
-		goomba.Update();
+		//goomba.Update();
+		//setTimeout(Update, 1000);
 		Render();
 	}
 
