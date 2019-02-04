@@ -46,7 +46,7 @@ var Goomba = (function (context, x, y) {
 		for (var i = 0; i < 1; i++) {
 			context.drawImage(this.image, this.sourceX, this.sourceY,
 				this.sourceWidth, this.sourceHeight, Math.floor(this.x),
-				Math.floor(this.y), this.width, this.height);
+				Math.floor(this.y), this.width*2.5, this.height*2.5);
 		}
 	}
 
