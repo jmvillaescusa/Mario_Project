@@ -7,8 +7,8 @@ $(document).ready(function () {
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 
-	var goomba = new Goomba(context);
-
+	var goomba = new Goomba(context,0,600 - 48);
+	
 	for (var i = 0; i < 1; i++) {
 		blocks.push(new Enviroment(0, 568, 16, 16));
 		blocks[i].image.src = blocks[i].source;
@@ -117,12 +117,13 @@ $(document).ready(function () {
 
 	function Update() {
 		requestAnimationFrame(Update, canvas);
-
+		//setTimeout(Update, 666);
+		goomba.Update();
 		Render();
 	}
 
 	function Render() {
-		context.clearRect(0, 0, canvas.width, canvas.height);
+		context.clearRect(0, 0, 800, 600);
 		goomba.Render(); 
 		for (var i = 0; i < blocks.length; i++) {
 			var j = 16;
