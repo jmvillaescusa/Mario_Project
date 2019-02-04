@@ -30,7 +30,7 @@ var Goomba = (function (context, x, y) {
 				this.currentFrame = 0;
 			} 
 		}
-		//setTimeout(this.UpdateAnimation, 1000);
+		setTimeout(this.UpdateAnimation, 1000);
 	}
 
 	this.Update = function () {
