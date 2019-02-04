@@ -6,9 +6,15 @@ $(document).ready(function () {
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 
-	var goomba = new Goomba(context);
+
+	var goomba = new Goomba(context, 0, 600 - 48);
 	var level = new Enviroment(context);
 	var background = new Background(context);
+	
+	for (var i = 0; i < 1; i++) {
+		blocks.push(new Brick(0, 520, 16, 16));
+		blocks[i].image.src = blocks[i].source;
+	}
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -115,14 +121,25 @@ $(document).ready(function () {
 		
 		//console.log(goomba.x + " - " + context.canvas.width / 2);
 
+		//setTimeout(Update, 666);
+		goomba.Update();
 		Render();
 	}
 
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
-
 		background.Render();
 		level.Render();
-		goomba.Render();
+		goomba.Render(); 
+
+		for (var i = 0; i < blocks.length; i++) {
+			var j = 40;
+			for (var l = 0; l < 50; l++) {
+				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y, blocks[i].width*2.5, blocks[i].height*2.5);
+			}
+			for (var l = 0; l < 50; l++) {
+				context.drawImage(blocks[i].image, blocks[i].sourceX, blocks[i].sourceY, blocks[i].sourceWidth, blocks[i].sourceHeight, blocks[i].x + j * l, blocks[i].y + j, blocks[i].width*2.5, blocks[i].height*2.5);
+			}
+		}
 	}
 });
