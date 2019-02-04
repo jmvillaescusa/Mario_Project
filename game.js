@@ -15,15 +15,6 @@ $(document).ready(function () {
 	var PLAYING = 2;
 	var GAMEOVER = 3;
 
-	                //Keypads
-	var UP = 87;    //W
-	var LEFT = 65;  //A 
-	var DOWN = 83;  //S   
-	var RIGHT = 68; //D
-	var A = 76;     //L
-	var B = 75;     //K
-	var START = 72; //H   
-
 	var pressUp = false;
 	var pressLeft = false;
 	var pressDown = false;
@@ -34,51 +25,63 @@ $(document).ready(function () {
 
 	window.addEventListener("keydown", function (event) {
 		switch (event.keyCode) {
-			case UP:
+			case 38:
+			case 87:
 				pressUp = true;
 				break;
-			case LEFT:
+			case 37:
+			case 65:
 				pressLeft = true;
 				break;
-			case DOWN:
+			case 40:
+			case 83:
 				pressDown = true;
 				break;
-			case RIGHT:
+			case 39:
+			case 68:
 				pressRight = true;
 				break;
-			case A:
+			case 90:
+			case 76:
 				pressA = true;
 				break;
-			case B:
+			case 88:
+			case 75:
 				pressB = true;
 				break;
-			case START:
+			case 72:
 				pressStart = true;
 		}
 	}, false);
 
 	window.addEventListener("keyup", function (event) {
 		switch (event.keyCode) {
-			case UP:
+			case 38:
+			case 87:
 				console.log("UP");
 				pressUp = false;
 				break;
-			case LEFT:
+			case 37:
+			case 65:
 				pressLeft = false;
 				break;
-			case DOWN:
+			case 40:
+			case 83:
 				pressDown = false;
 				break;
-			case RIGHT:
+			case 39:
+			case 68:
 				pressRight = false;
 				break;
-			case A:
+			case 90:
+			case 76:
 				pressA = false;
 				break;
-			case B:
+			case 88:
+			case 75:
 				pressB = false;
 				break;
-			case START:
+			case 72:
 				pressStart = false;
 		}
 	}, false);
