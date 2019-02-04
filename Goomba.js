@@ -11,8 +11,6 @@ var Goomba = (function (context) {
 	this.vx  = 0;
 	this.vy = 0;
 
-
-
 	this.image = new Image();
 	this.source = "images/enemies.png";
 	this.image.src = this.source;
