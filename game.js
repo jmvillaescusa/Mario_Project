@@ -10,6 +10,8 @@ $(document).ready(function () {
 	var level = new Enviroment(context);
 	var background = new Background(context);
 
+	var test = new testObject(context);
+
 	var TITLE = 0;
 	var LOADING = 1;
 	var PLAYING = 2;
@@ -99,24 +101,25 @@ $(document).ready(function () {
 		requestAnimationFrame(Update, canvas);
 
 		if (pressLeft && !pressRight) {
-			if (goomba.x > context.canvas.width * 0) {
-				goomba.x -= 5
+			if (test.x > context.canvas.width * 0) {
+				test.x -= 5
 			}
-			else if (goomba.x < context.canvas.width * 0) {
-				goomba.x = (context.canvas.width * 0 + 100);
+			else if (test.x < context.canvas.width * 0) {
+				test.x = (context.canvas.width * 0 + 100);
 			}
 		}
 		if (pressRight && !pressLeft) {
-			if (goomba.x >= context.canvas.width * 0.49) {
+			if (test.x >= context.canvas.width * 0.49) {
 				background.x -= 5;
 				level.x -= 5;
+				goomba.x -= 5;
 			}
 			else {
-				goomba.x += 5;
+				test.x += 5;
 			}
 		}
 
-		//goomba.Update();
+		goomba.Update();
 		//setTimeout(Update, 1000);
 		Render();
 	}
@@ -125,6 +128,7 @@ $(document).ready(function () {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		background.Render();
 		level.Render();
-		goomba.Render(); 
+		goomba.Render();
+		test.Render();
 	}
 });
