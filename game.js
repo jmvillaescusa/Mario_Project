@@ -96,12 +96,59 @@ $(document).ready(function () {
 		floor.push(new Enviroment(context, 0, 16, i * 40 + 5480, 360));
 	}
 	for (var i = 0; i < 9; i++) {
-		floor.push(new Enviroment(context, 0, 16, i * 40 + 6480, 360));
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7240, 480));
+	}
+	for (var i = 0; i < 8; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7280, 440));
+	}
+	for (var i = 0; i < 7; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7320, 400));
+	}
+	for (var i = 0; i < 6; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7360, 360));
+	}
+	for (var i = 0; i < 5; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7400, 320));
+	}
+	for (var i = 0; i < 4; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7440, 280));
+	}
+	for (var i = 0; i < 3; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7480, 240));
+	}
+	for (var i = 0; i < 2; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7520, 200));
+	}
+	for (var i = 0; i < 1; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 7920, 480));
 	}
 
 	//Render breakable bricks
 	var brick = [];
-
+	for (var i = 0; i < 3; i++) {
+		brick.push(new Enviroment(context, 16, 0, 800 + i * 80, 360));
+	}
+	for (var i = 0; i < 2; i++) {
+		brick.push(new Enviroment(context, 16, 0, 3080 + i * 80, 360));
+	}
+	for (var i = 0; i < 8; i++) {
+		brick.push(new Enviroment(context, 16, 0, 3200 + i * 40, 200));
+	}
+	for (var i = 0; i < 3; i++) {
+		brick.push(new Enviroment(context, 16, 0, 3640 + i * 40, 200));
+	}
+	for (var i = 0; i < 1; i++) {
+		brick.push(new Enviroment(context, 16, 0, 3720, 360));
+	}
+	for (var i = 0; i < 2; i++) {
+		brick.push(new Enviroment(context, 16, 0, 4000 + i * 80, 360));
+	}
+	for (var i = 0; i < 1; i++) {
+		brick.push(new Enviroment(context, 16, 0, 4720, 360));
+	}
+	for (var i = 0; i < 3; i++) {
+		brick.push(new Enviroment(context, 16, 0, 4840 + i * 40, 200));
+	}
 
 	var test = new testObject(context);
 
@@ -218,6 +265,9 @@ $(document).ready(function () {
 			for (var i = 0; i < floor.length; i++) {
 				floor[i].Update(background.vx);
 			}
+			for (var i = 0; i < brick.length; i++) {
+				brick[i].Update(background.vx);
+			}
 		}
 
 
@@ -240,6 +290,9 @@ $(document).ready(function () {
 		goomba.Render();
 		for (var i = 0; i < floor.length; i++) {
 			floor[i].Render();
+		}
+		for (var i = 0; i < brick.length; i++) {
+			brick[i].Render();
 		}
 		test.Render();
 	}
