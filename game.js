@@ -9,11 +9,10 @@ $(document).ready(function () {
 	var goomba = new Goomba(context);
 	var background = new Background(context);
 
+	//Render Floor
 	var floor = [];
-
-	//Rendering the floor
 	for (var i = 0; i < 69; i++) {
-		floor.push(new Enviroment(context,0,0,i * 40,520));
+		floor.push(new Enviroment(context, 0, 0, i * 40, 520));
 	}
 	for (var i = 0; i < 69; i++) {
 		floor.push(new Enviroment(context, 0, 0, i * 40, 560));
@@ -31,11 +30,67 @@ $(document).ready(function () {
 		floor.push(new Enviroment(context, 0, 0, i * 40 + 3560, 560));
 	}
 	for (var i = 0; i < 69; i++) {
-		floor.push(new Enviroment(context, 0, 0, i * 40 + 4560, 520));
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 520));
 	}
 	for (var i = 0; i < 69; i++) {
-		floor.push(new Enviroment(context, 0, 0, i * 40 + 4560, 560));
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 560));
 	}
+
+	//Render Stairs
+	for (var i = 0; i < 4; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6200, 480));
+	}
+	for (var i = 0; i < 3; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6200, 440));
+	}
+	for (var i = 0; i < 2; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6200, 400));
+	}
+	for (var i = 0; i < 1; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6200, 360));
+	}
+	for (var i = 0; i < 5; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5920, 480));
+	}
+	for (var i = 0; i < 4; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5960, 440));
+	}
+	for (var i = 0; i < 3; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6000, 400));
+	}
+	for (var i = 0; i < 2; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6040, 360));
+	}
+	for (var i = 0; i < 4; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5600, 480));
+	}
+	for (var i = 0; i < 3; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5600, 440));
+	}
+	for (var i = 0; i < 2; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5600, 400));
+	}
+	for (var i = 0; i < 1; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5600, 360));
+	}
+	for (var i = 0; i < 4; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5360, 480));
+	}
+	for (var i = 0; i < 3; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5400, 440));
+	}
+	for (var i = 0; i < 2; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5440, 400));
+	}
+	for (var i = 0; i < 1; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 5480, 360));
+	}
+	for (var i = 0; i < 9; i++) {
+		floor.push(new Enviroment(context, 0, 16, i * 40 + 6480, 360));
+	}
+
+	//Render breakable bricks
+	var brick = [];
 
 
 	var test = new testObject(context);
@@ -150,12 +205,13 @@ $(document).ready(function () {
 					test.x += 10;
 				}
 			}
+			for (var i = 0; i < floor.length; i++) {
+				floor[i].Update(background.vx);
+			}
 		}
 
 		background.Update();
-		for (var i = 0; i < floor.length; i++) {
-			floor[i].Update(background.vx);
-		}
+
 		goomba.Update();
 		Render();
 		
@@ -165,10 +221,9 @@ $(document).ready(function () {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		background.Render();
 		goomba.Render();
-		test.Render();
-
 		for (var i = 0; i < floor.length; i++) {
 			floor[i].Render();
 		}
+		test.Render();
 	}
 });
