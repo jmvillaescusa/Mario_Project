@@ -13,6 +13,8 @@ var Goomba = (function (context,x,y) {
 	this.vy = 0;
 	this.isActive = false;
 
+
+
 	this.image = new Image();
 	this.source = "images/enemies.png";
 	this.image.src = this.source;

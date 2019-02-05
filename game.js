@@ -14,7 +14,39 @@ $(document).ready(function () {
 	}
 
 	var level = new Enviroment(context);
+
+	var goomba = new Goomba(context);
+
 	var background = new Background(context);
+
+	var floor = [];
+
+	//Rendering the floor
+	for (var i = 0; i < 69; i++) {
+		floor.push(new Enviroment(context,0,0,i * 40,520));
+	}
+	for (var i = 0; i < 69; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40, 560));
+	}
+	for (var i = 0; i < 15; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 2840, 520));
+	}
+	for (var i = 0; i < 15; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 2840, 560));
+	}
+	for (var i = 0; i < 64; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 3560, 520));
+	}
+	for (var i = 0; i < 64; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 3560, 560));
+	}
+	for (var i = 0; i < 69; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 4560, 520));
+	}
+	for (var i = 0; i < 69; i++) {
+		floor.push(new Enviroment(context, 0, 0, i * 40 + 4560, 560));
+	}
+
 
 	var test = new testObject(context);
 
@@ -66,12 +98,12 @@ $(document).ready(function () {
 		switch (event.keyCode) {
 			case 38:
 			case 87:
-				console.log("UP");
 				pressUp = false;
 				break;
 			case 37:
 			case 65:
 				pressLeft = false;
+				background.vx = 0;
 				break;
 			case 40:
 			case 83:
@@ -80,6 +112,7 @@ $(document).ready(function () {
 			case 39:
 			case 68:
 				pressRight = false;
+				background.vx = 0;
 				break;
 			case 90:
 			case 76:
@@ -106,37 +139,53 @@ $(document).ready(function () {
 	function Update() {
 		requestAnimationFrame(Update, canvas);
 
-		if (pressLeft && !pressRight) {
-			if (test.x > context.canvas.width * 0) {
-				test.x -= 5
+		if (background.x <= -7520) {
+			background.x = -7520;
+		}
+		else {
+			if (pressLeft && !pressRight) {
+				if (test.x > context.canvas.width * 0) {
+					test.x -= 10;
+				}
+				else if (test.x < context.canvas.width * 0) {
+					test.x = (context.canvas.width * 0);
+				}
 			}
-			else if (test.x < context.canvas.width * 0) {
-				test.x = (context.canvas.width * 0 + 100);
+			if (pressRight && !pressLeft) {
+				if (test.x >= context.canvas.width * 0.49) {
+					background.vx = -10;
+					goomba.x -= 10;
+				}
+				else {
+					test.x += 10;
+				}
 			}
 		}
-		if (pressRight && !pressLeft) {
-			if (test.x >= context.canvas.width * 0.49) {
-				background.x -= 5;
-				level.x -= 5;
-				goomba.x -= 5;
-			}
-			else {
-				test.x += 5;
-			}
-		}
+
 
 
 		goomba.Update();
 		//setTimeout(Update, 1000);
 
+
+		background.Update();
+		for (var i = 0; i < floor.length; i++) {
+			floor[i].Update(background.vx);
+		}
+		goomba.Update();
+
 		Render();
+		
 	}
 
 	function Render() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		background.Render();
-		level.Render();
 		goomba.Render();
 		test.Render();
+
+		for (var i = 0; i < floor.length; i++) {
+			floor[i].Render();
+		}
 	}
 });
