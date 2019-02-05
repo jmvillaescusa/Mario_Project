@@ -7,8 +7,8 @@ var Goomba = (function (context) {
 	this.width = 16;
 	this.height= 16;
 
-	this.x = 100;
-	this.y = 480;
+	this.x = 0;
+	this.y = 0;
 	this.vx  = 0;
 	this.vy = 0;
 	this.isActive = false;
@@ -45,14 +45,15 @@ var Goomba = (function (context) {
 		//Making the goomba move forward (-x left on its own) 
 			
 
+		
 		//collision check Goomba
 	} 
 
 	this.Render = function() {
 		for (var i = 0; i < 1; i++) {
 			context.drawImage(this.image, this.sourceX, this.sourceY,
-				this.sourceWidth, this.sourceHeight, Math.floor(this.x),
-				Math.floor(this.y), this.width*2.5, this.height*2.5);
+				this.sourceWidth, this.sourceHeight, this.x + 840,
+				this.y + 480, this.width*2.5, this.height*2.5);
 		}
 	}
 

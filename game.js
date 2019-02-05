@@ -12,19 +12,12 @@ $(document).ready(function () {
 	var level = new Enviroment(context);
 	var background = new Background(context);
 
+	var test = new testObject(context);
+
 	var TITLE = 0;
 	var LOADING = 1;
 	var PLAYING = 2;
 	var GAMEOVER = 3;
-
-	                //Keypads
-	var UP = 87;    //W
-	var LEFT = 65;  //A 
-	var DOWN = 83;  //S   
-	var RIGHT = 68; //D
-	var A = 76;     //L
-	var B = 75;     //K
-	var START = 72; //H   
 
 	var pressUp = false;
 	var pressLeft = false;
@@ -36,51 +29,63 @@ $(document).ready(function () {
 
 	window.addEventListener("keydown", function (event) {
 		switch (event.keyCode) {
-			case UP:
+			case 38:
+			case 87:
 				pressUp = true;
 				break;
-			case LEFT:
+			case 37:
+			case 65:
 				pressLeft = true;
 				break;
-			case DOWN:
+			case 40:
+			case 83:
 				pressDown = true;
 				break;
-			case RIGHT:
+			case 39:
+			case 68:
 				pressRight = true;
 				break;
-			case A:
+			case 90:
+			case 76:
 				pressA = true;
 				break;
-			case B:
+			case 88:
+			case 75:
 				pressB = true;
 				break;
-			case START:
+			case 72:
 				pressStart = true;
 		}
 	}, false);
 
 	window.addEventListener("keyup", function (event) {
 		switch (event.keyCode) {
-			case UP:
+			case 38:
+			case 87:
 				console.log("UP");
 				pressUp = false;
 				break;
-			case LEFT:
+			case 37:
+			case 65:
 				pressLeft = false;
 				break;
-			case DOWN:
+			case 40:
+			case 83:
 				pressDown = false;
 				break;
-			case RIGHT:
+			case 39:
+			case 68:
 				pressRight = false;
 				break;
-			case A:
+			case 90:
+			case 76:
 				pressA = false;
 				break;
-			case B:
+			case 88:
+			case 75:
 				pressB = false;
 				break;
-			case START:
+			case 72:
 				pressStart = false;
 		}
 	}, false);
@@ -98,22 +103,24 @@ $(document).ready(function () {
 		requestAnimationFrame(Update, canvas);
 
 		if (pressLeft && !pressRight) {
-			if (goomba.x > context.canvas.width * 0) {
-				goomba.x -= 5
+			if (test.x > context.canvas.width * 0) {
+				test.x -= 5
 			}
-			else if (goomba.x < context.canvas.width * 0) {
-				goomba.x = (context.canvas.width * 0 + 100);
+			else if (test.x < context.canvas.width * 0) {
+				test.x = (context.canvas.width * 0 + 100);
 			}
 		}
 		if (pressRight && !pressLeft) {
-			if (goomba.x >= context.canvas.width * 0.49) {
+			if (test.x >= context.canvas.width * 0.49) {
 				background.x -= 5;
 				level.x -= 5;
+				goomba.x -= 5;
 			}
 			else {
-				goomba.x += 5;
+				test.x += 5;
 			}
 		}
+
 
 		
 	
@@ -121,6 +128,10 @@ $(document).ready(function () {
 		goomba.Update();
 	
 	
+
+		goomba.Update();
+		//setTimeout(Update, 1000);
+
 		Render();
 	}
 
@@ -128,6 +139,7 @@ $(document).ready(function () {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 		background.Render();
 		level.Render();
-		goomba.Render(); 
+		goomba.Render();
+		test.Render();
 	}
 });
