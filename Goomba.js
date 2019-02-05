@@ -20,6 +20,8 @@ var Goomba = (function (context) {
 	this.numberOfFrames = 2;
 	this.currentFrame = 0;
 
+	this.goombaleft
+
 	this.UpdateAnimation = function () {
 		this.sourceX = this.currentFrame * this.sourceWidth;
 		
@@ -38,7 +40,10 @@ var Goomba = (function (context) {
 
 		//Goomba movement 
 		this.x += this.vx;
-		this.y += this.vy;
+		this.y += this.vy; 
+
+		//Making the goomba move forward (-x left on its own) 
+			
 
 		//collision check Goomba
 	} 

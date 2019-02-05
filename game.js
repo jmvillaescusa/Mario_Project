@@ -116,10 +116,11 @@ $(document).ready(function () {
 		}
 
 		
-		console.log(goomba.x + " - " + context.canvas.width / 2);
+	
 
-		//goomba.Update();
-		//setTimeout(Update, 1000);
+		goomba.Update();
+	
+	
 		Render();
 	}
 
