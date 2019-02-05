@@ -1,5 +1,5 @@
 //The sprite Object
-var Goomba = (function (context) {
+var Goomba = (function (context,x,y) {
 	this.sourceX = 0;
 	this.sourceY = 16;
 	this.sourceWidth = 16;
@@ -7,8 +7,8 @@ var Goomba = (function (context) {
 	this.width = 16;
 	this.height= 16;
 
-	this.x = 0;
-	this.y = 0;
+	this.x = x;
+	this.y = y ;
 	this.vx  = 0;
 	this.vy = 0;
 	this.isActive = false;
@@ -21,6 +21,7 @@ var Goomba = (function (context) {
 
 	this.numberOfFrames = 2;
 	this.currentFrame = 0;
+
 
 	this.UpdateAnimation = function () {
 		this.sourceX = this.currentFrame * this.sourceWidth;
@@ -40,8 +41,7 @@ var Goomba = (function (context) {
 
 		//Goomba movement 
 		this.x += this.vx;
-		this.y += this.vy;
-
+		this.y += this.vy; 
 		
 		//collision check Goomba
 	} 

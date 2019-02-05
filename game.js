@@ -5,8 +5,18 @@ $(document).ready(function () {
 	var sprites = [];
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
+	var Goombas = [];
+	Goombas.push(new Goomba(context, 0, 600 - 48));
+
+	for (var i = 0; i < 1; i++) {
+		Goombas.push(new Goomba(context,840, 480));
+		Goombas[i].image.src = Goombas[i].source;
+	}
+
+	var level = new Enviroment(context);
 
 	var goomba = new Goomba(context);
+
 	var background = new Background(context);
 
 	//Render Floor
@@ -210,9 +220,16 @@ $(document).ready(function () {
 			}
 		}
 
+
+
+		goomba.Update();
+		//setTimeout(Update, 1000);
+
+
 		background.Update();
 
 		goomba.Update();
+
 		Render();
 		
 	}
