@@ -5,10 +5,14 @@ $(document).ready(function () {
 	var sprites = [];
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
+	var Goombas = [];
+	Goombas.push(new Goomba(context, 0, 600 - 48));
 
+	for (var i = 0; i < 1; i++) {
+		Goombas.push(new Goomba(context,840, 480));
+		Goombas[i].image.src = Goombas[i].source;
+	}
 
-	var goomba = new Goomba(context, 0, 600 -48);
-	var goomba = new Goomba(context);
 	var level = new Enviroment(context);
 	var background = new Background(context);
 
@@ -121,13 +125,6 @@ $(document).ready(function () {
 			}
 		}
 
-
-		
-	
-
-		goomba.Update();
-	
-	
 
 		goomba.Update();
 		//setTimeout(Update, 1000);
