@@ -138,16 +138,58 @@ $(document).ready(function () {
 		brick.push(new Enviroment(context, 16, 0, 3640 + i * 40, 200));
 	}
 	for (var i = 0; i < 1; i++) {
-		brick.push(new Enviroment(context, 16, 0, 3720, 360));
+		brick.push(new Enviroment(context, 16, 0, 3760, 360));
 	}
 	for (var i = 0; i < 2; i++) {
-		brick.push(new Enviroment(context, 16, 0, 4000 + i * 80, 360));
+		brick.push(new Enviroment(context, 16, 0, 3960 + i * 40, 360));
 	}
 	for (var i = 0; i < 1; i++) {
 		brick.push(new Enviroment(context, 16, 0, 4720, 360));
 	}
 	for (var i = 0; i < 3; i++) {
 		brick.push(new Enviroment(context, 16, 0, 4840 + i * 40, 200));
+	}
+	for (var i = 0; i < 2; i++) {
+		brick.push(new Enviroment(context, 16, 0, 5120 + i * 120, 200));
+	}
+	for (var i = 0; i < 2; i++) {
+		brick.push(new Enviroment(context, 16, 0, 5160 + i * 40, 360));
+	}
+	for (var i = 0; i < 2; i++) {
+		brick.push(new Enviroment(context, 16, 0, 6720 + i * 40, 360));
+	}
+	for (var i = 0; i < 1; i++) {
+		brick.push(new Enviroment(context, 16, 0, 6840, 360));
+	}
+
+	//Render Question boxes
+	var box = [];
+	for (var i = 0; i < 1; i++) {
+		box.push(new Enviroment(context, 384, 0, 640, 360));
+	}
+	for (var i = 0; i < 2; i++) {
+		box.push(new Enviroment(context, 384, 0, 840 + i * 80, 360));
+	}
+	for (var i = 0; i < 1; i++) {
+		box.push(new Enviroment(context, 384, 0, 880, 200));
+	}
+	for (var i = 0; i < 1; i++) {
+		box.push(new Enviroment(context, 384, 0, 3120, 360));
+	}
+	for (var i = 0; i < 1; i++) {
+		box.push(new Enviroment(context, 384, 0, 3760, 200));
+	}
+	for (var i = 0; i < 3; i++) {
+		box.push(new Enviroment(context, 384, 0, 4240 + i * 120, 360));
+	}
+	for (var i = 0; i < 3; i++) {
+		box.push(new Enviroment(context, 384, 0, 4360, 200));
+	}
+	for (var i = 0; i < 2; i++) {
+		box.push(new Enviroment(context, 384, 0, 5160 + i * 40, 200));
+	}
+	for (var i = 0; i < 1; i++) {
+		box.push(new Enviroment(context, 384, 0, 6800, 360));
 	}
 
 	var test = new testObject(context);
@@ -268,6 +310,9 @@ $(document).ready(function () {
 			for (var i = 0; i < brick.length; i++) {
 				brick[i].Update(background.vx);
 			}
+			for (var i = 0; i < box.length; i++) {
+				box[i].Update(background.vx);
+			}
 		}
 
 
@@ -293,6 +338,9 @@ $(document).ready(function () {
 		}
 		for (var i = 0; i < brick.length; i++) {
 			brick[i].Render();
+		}
+		for (var i = 0; i < box.length; i++) {
+			box[i].Render();
 		}
 		test.Render();
 	}
