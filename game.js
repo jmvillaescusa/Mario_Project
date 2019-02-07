@@ -2,16 +2,11 @@ $(document).ready(function () {
 	var canvas = $("canvas");
 	var context = canvas.get(0).getContext("2d");
 
-	var sprites = [];
-	var assetsToLoad = [];
-	var assetsLoaded = 0;
 	var Goombas = [];
-
 	for (var i = 0; i < 1; i++) {
 		Goombas.push(new Goomba(context, 840, 480));
 		Goombas[i].image.src = Goombas[i].source;
 	}
-	var level = new Enviroment(context);
 	var background = new Background(context);
 
 	//Render Floor
@@ -242,13 +237,13 @@ $(document).ready(function () {
 		pipe.push(new Enviroment(context, 16, 144, 40 + j * 179, 40 + j * 11));
 	}
 
+	//Render Items
+	var items = [];
+	items.push(new Item(context, 0, 0, 0, 0));
+
     var mario = new Mario(context,100,480);
 
-	var TITLE = 0;
-	var LOADING = 1;
-	var PLAYING = 2;
-	var GAMEOVER = 3;
-
+	//Controll scheme and booleans
 	var pressUp = false;
 	var pressLeft = false;
 	var pressDown = false;
@@ -256,7 +251,6 @@ $(document).ready(function () {
 	var pressA = false;
 	var pressB = false;
 	var pressStart = false;
-
 	window.addEventListener("keydown", function (event) {
 		switch (event.keyCode) {
 			case 38:
@@ -287,7 +281,6 @@ $(document).ready(function () {
 				pressStart = true;
 		}
 	}, false);
-
 	window.addEventListener("keyup", function (event) {
 		switch (event.keyCode) {
 			case 38:
@@ -321,21 +314,16 @@ $(document).ready(function () {
 		}
 	}, false);
 
-	function loadHandler() {
-		assetsLoaded++;
-		if (assetsLoaded == assetsToLoad.length) {
-			//gameState = PLAYING;
-		}
-	}
-
 	Update();
 
 	function Update() {
 		requestAnimationFrame(Update, canvas);
-		
+
+		//If it reaches flagpole, level ends
 		if (background.x <= -7600) {
 			background.x = -7600;
 		}
+		//Mario's Movement
 		else {
 			if (pressLeft && !pressRight) {
 				if (mario.x > context.canvas.width * 0) {
@@ -362,6 +350,7 @@ $(document).ready(function () {
 					}
 				}
 			}
+			//Updating sprites as backgroung scrolls
 			for (var i = 0; i < floor.length; i++) {
 				floor[i].Update(background.vx);
 			}
@@ -377,6 +366,9 @@ $(document).ready(function () {
 			for (var i = 0; i < pipe.length; i++) {
 				pipe[i].Update(background.vx);
 			}
+			for (var i = 0; i < items.length; i++) {
+				items[i].Update(background.vx);
+			}
 		}
 		//setTimeout(Update, 1000);
 		background.Update();
@@ -390,6 +382,8 @@ $(document).ready(function () {
 
 	function Render() {
 		background.Render();
+
+	
 		for (var i = 0; i < floor.length; i++) {
 			floor[i].Render();
 		}
@@ -404,6 +398,9 @@ $(document).ready(function () {
 		}
 		for (var i = 0; i < pipe.length; i++) {
 			pipe[i].Render();
+		}
+		for (var i = 0; i < items.length; i++) {
+			items[i].Render();
 		}
 		mario.Render();
 	}
