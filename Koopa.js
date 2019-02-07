@@ -36,7 +36,7 @@ var Koopa = (function (context, x, y) {
 	}
 
 	this.Update = function (vx) {
-	
+		this.vx = vx;
 		//Koopa movement 
 		this.x += this.vx;
 		this.y += this.vy;

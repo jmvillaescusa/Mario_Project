@@ -377,10 +377,10 @@ $(document).ready(function () {
 
 			for (var i = 0; i < pipe.length; i++) {
 				pipe[i].Update(background.vx);
+			}
 			
 			for (var i = 0; i < Koopas.length; i++) {
-					Koopas[i].Update(background.vx);
-				}
+				Koopas[i].Update(background.vx);
 			}
 			for (var i = 0; i < items.length; i++) {
 				items[i].Update(background.vx);
