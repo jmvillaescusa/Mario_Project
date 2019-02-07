@@ -6,13 +6,22 @@ $(document).ready(function () {
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 	var Goombas = [];
+	var Koopas = [];
 
 	for (var i = 0; i < 1; i++) {
-		Goombas.push(new Goomba(context, 840, 480));
-		Goombas[i].image.src = Goombas[i].source;
+		Koopas.push(new Koopa(context, 1200, 465));
+		//Koopas[i].image.src = Koopas[i].source;
 	}
+
+	for (var i = 0; i < 1; i++) {
+		Goombas.push(new Goomba(context, 640, 480));
+		//Goombas[i].image.src = Goombas[i].source;
+	}
+
+
 	var level = new Enviroment(context);
 	var background = new Background(context);
+
 
 	//Render Floor
 	var floor = [];
@@ -374,16 +383,30 @@ $(document).ready(function () {
 			for (var i = 0; i < Goombas.length; i++) {
 				Goombas[i].Update(background.vx);
 			}
+
 			for (var i = 0; i < pipe.length; i++) {
 				pipe[i].Update(background.vx);
-			}
+			
+			for (var i = 0; i < Koopas.length; i++) {
+				Koopas[i].Update(background.vx);			}
+
+
 		}
+
 		//setTimeout(Update, 1000);
 		background.Update();
+
 
 		function collisionSide(mario, r2) {
 
 		} 
+
+		//Make the Goomba move
+		Goombas[0].x--;
+
+		//Make the koopa move
+		Koopas[0].x--;
+
 
 		Render();
 	}
@@ -399,6 +422,7 @@ $(document).ready(function () {
 		for (var i = 0; i < box.length; i++) {
 			box[i].Render();
 		}
+
 		for (var i = 0; i < Goombas.length; i++) {
 			Goombas[i].Render();
 		}
@@ -406,5 +430,18 @@ $(document).ready(function () {
 			pipe[i].Render();
 		}
 		mario.Render();
+
+        
+		for (var i = 0; i < Goombas.length; i++) {
+			Goombas[i].Render();
+		}
+		mario.Render();
+
+		
+		for (var i = 0; i < Koopas.length; i++) {
+			Koopas[i].Render();
+		}
+		
+
 	}
 });
