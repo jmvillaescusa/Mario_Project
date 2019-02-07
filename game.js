@@ -14,6 +14,11 @@ $(document).ready(function () {
 
 	var level = new Enviroment(context);
 	
+	Goombas.push(new Goomba(context, 0, 600 - 48));
+	
+
+	var level = new Enviroment(context);
+
 
 	var background = new Background(context);
 
@@ -280,7 +285,8 @@ $(document).ready(function () {
 
 	function Update() {
 		requestAnimationFrame(Update, canvas);
-
+		
+		
 		if (background.x <= -7520) {
 			background.x = -7520;
 		}
@@ -297,6 +303,10 @@ $(document).ready(function () {
 				if (test.x >= context.canvas.width * 0.49) {
 					background.vx = -10;
 				}
+
+					goomba.x -= 10;
+				} 
+
 				else {
 					test.x += 10;
 				}
@@ -309,21 +319,36 @@ $(document).ready(function () {
 			}
 			for (var i = 0; i < box.length; i++) {
 				box[i].Update(background.vx);
+				
 			}
 			for (var i = 0; i < Goombas.length; i++) {
 				Goombas[i].Update(background.vx);
 			}
 		}
 		//setTimeout(Update, 1000);
+
 		
+
+
+	
+
 		background.Update();
 
 		Render();
 	}
 
 	function Render() {
-		context.clearRect(0, 0, canvas.width, canvas.height);
+		
 		background.Render();
+
+
+		goomba.Render();
+
+		for (var i = 0; i < 1; i++) {
+			Goombas.push(new Goomba(context, 840, 480));
+			Goombas[i].image.src = Goombas[i].source;
+		}
+
 		for (var i = 0; i < floor.length; i++) {
 			floor[i].Render();
 		}
@@ -333,9 +358,13 @@ $(document).ready(function () {
 		for (var i = 0; i < box.length; i++) {
 			box[i].Render();
 		}
+
 		for (var i = 0; i < Goombas.length; i++) {
 			Goombas[i].Render();
 		}
+
+		
+
 		test.Render();
 	}
 });
