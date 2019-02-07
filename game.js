@@ -43,7 +43,8 @@ $(document).ready(function () {
 		floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 520));
 	}
 	for (var i = 0; i < 69; i++) {
-		floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 560));
+        floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 560));
+        
 	}
 
 	//Render Stairs
@@ -120,7 +121,8 @@ $(document).ready(function () {
 		floor.push(new Enviroment(context, 0, 16, i * 40 + 7520, 200));
 	}
 	for (var i = 0; i < 1; i++) {
-		floor.push(new Enviroment(context, 0, 16, i * 40 + 7920, 480));
+        floor.push(new Enviroment(context, 0, 16, i * 40 + 7920, 480));
+        
 	}
 
 	//Render breakable bricks
@@ -159,7 +161,8 @@ $(document).ready(function () {
 		brick.push(new Enviroment(context, 16, 0, 6720 + i * 40, 360));
 	}
 	for (var i = 0; i < 1; i++) {
-		brick.push(new Enviroment(context, 16, 0, 6840, 360));
+        brick.push(new Enviroment(context, 16, 0, 6840, 360));
+        
 	}
 
 	//Render Question boxes
@@ -189,10 +192,11 @@ $(document).ready(function () {
 		box.push(new Enviroment(context, 384, 0, 5160 + i * 40, 200));
 	}
 	for (var i = 0; i < 1; i++) {
-		box.push(new Enviroment(context, 384, 0, 6800, 360));
+        box.push(new Enviroment(context, 384, 0, 6800, 360));
+        
 	}
 
-	var test = new testObject(context);
+    var mario = new Mario(context,0,0);
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -288,20 +292,20 @@ $(document).ready(function () {
 		}
 		else {
 			if (pressLeft && !pressRight) {
-				if (test.x > context.canvas.width * 0) {
-					test.x -= 10;
+				if (mario.x > context.canvas.width * 0) {
+					mario.x -= 10;
 				}
-				else if (test.x < context.canvas.width * 0) {
-					test.x = (context.canvas.width * 0);
+				else if (mario.x < context.canvas.width * 0) {
+					mario.x = (context.canvas.width * 0);
 				}
 			}
 			if (pressRight && !pressLeft) {
-				if (test.x >= context.canvas.width * 0.49) {
+				if (mario.x >= context.canvas.width * 0.49) {
 					background.vx = -10;
 					goomba.x -= 10;
 				}
 				else {
-					test.x += 10;
+					mario.x += 10;
 				}
 			}
 			for (var i = 0; i < floor.length; i++) {
@@ -342,6 +346,6 @@ $(document).ready(function () {
 		for (var i = 0; i < box.length; i++) {
 			box[i].Render();
 		}
-		test.Render();
+        mario.Render();
 	}
 });
