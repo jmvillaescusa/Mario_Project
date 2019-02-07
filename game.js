@@ -6,17 +6,12 @@ $(document).ready(function () {
 	var assetsToLoad = [];
 	var assetsLoaded = 0;
 	var Goombas = [];
-	Goombas.push(new Goomba(context, 0, 600 - 48));
 
 	for (var i = 0; i < 1; i++) {
-		Goombas.push(new Goomba(context,840, 480));
+		Goombas.push(new Goomba(context, 840, 480));
 		Goombas[i].image.src = Goombas[i].source;
 	}
-
 	var level = new Enviroment(context);
-
-	var goomba = new Goomba(context);
-
 	var background = new Background(context);
 
 	//Render Floor
@@ -286,7 +281,7 @@ $(document).ready(function () {
 
 	function Update() {
 		requestAnimationFrame(Update, canvas);
-
+		
 		if (background.x <= -7520) {
 			background.x = -7520;
 		}
@@ -302,8 +297,8 @@ $(document).ready(function () {
 			if (pressRight && !pressLeft) {
 				if (mario.x >= context.canvas.width * 0.49) {
 					background.vx = -10;
-					goomba.x -= 10;
 				}
+
 				else {
 					mario.x += 10;
 				}
@@ -317,26 +312,18 @@ $(document).ready(function () {
 			for (var i = 0; i < box.length; i++) {
 				box[i].Update(background.vx);
 			}
+			for (var i = 0; i < Goombas.length; i++) {
+				Goombas[i].Update(background.vx);
+			}
 		}
-
-
-
-		goomba.Update();
 		//setTimeout(Update, 1000);
-
-
 		background.Update();
 
-		goomba.Update();
-
 		Render();
-		
 	}
 
 	function Render() {
-		context.clearRect(0, 0, canvas.width, canvas.height);
 		background.Render();
-		goomba.Render();
 		for (var i = 0; i < floor.length; i++) {
 			floor[i].Render();
 		}
@@ -347,5 +334,9 @@ $(document).ready(function () {
 			box[i].Render();
 		}
         mario.Render();
+		for (var i = 0; i < Goombas.length; i++) {
+			Goombas[i].Render();
+		}
+		test.Render();
 	}
 });
