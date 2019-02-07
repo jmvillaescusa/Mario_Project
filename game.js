@@ -339,19 +339,27 @@ $(document).ready(function () {
 		else {
 			if (pressLeft && !pressRight) {
 				if (mario.x > context.canvas.width * 0) {
-					mario.x -= 10;
+					mario.x -= 4;
 				}
 				else if (mario.x < context.canvas.width * 0) {
 					mario.x = (context.canvas.width * 0);
 				}
+				if (pressLeft && !pressRight && pressB) {
+					mario.x -= 8;
+				}
 			}
 			if (pressRight && !pressLeft) {
 				if (mario.x >= context.canvas.width * 0.49) {
-					background.vx = -10;
+					background.vx = -4;
+					if (pressB) {
+						background.vx = -9;
+					}
 				}
-
 				else {
-					mario.x += 10;
+					mario.x += 4;
+					if (pressRight && !pressLeft && pressB) {
+						mario.x += 9;
+					}
 				}
 			}
 			for (var i = 0; i < floor.length; i++) {
@@ -372,6 +380,10 @@ $(document).ready(function () {
 		}
 		//setTimeout(Update, 1000);
 		background.Update();
+
+		function collisionSide(mario, r2) {
+
+		} 
 
 		Render();
 	}
