@@ -21,7 +21,7 @@ var Mario = (function (context,x,y) {
         for (var i = 0; i < 1; i++) {
             context.drawImage(this.image, this.sourceX, this.sourceY,
                 this.sourceWidth, this.sourceHeight, this.x + 0,
-                this.y + 480, this.width * 2.5, this.height * 2.5);
+                this.y, this.width * 2.5, this.height * 2.5);
             
         }
     }

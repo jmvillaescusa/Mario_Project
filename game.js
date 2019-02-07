@@ -39,7 +39,6 @@ $(document).ready(function () {
 	}
 	for (var i = 0; i < 69; i++) {
         floor.push(new Enviroment(context, 0, 0, i * 40 + 6200, 560));
-        
 	}
 
 	//Render Stairs
@@ -117,7 +116,6 @@ $(document).ready(function () {
 	}
 	for (var i = 0; i < 1; i++) {
         floor.push(new Enviroment(context, 0, 16, i * 40 + 7920, 480));
-        
 	}
 
 	//Render breakable bricks
@@ -157,7 +155,6 @@ $(document).ready(function () {
 	}
 	for (var i = 0; i < 1; i++) {
         brick.push(new Enviroment(context, 16, 0, 6840, 360));
-        
 	}
 
 	//Render Question boxes
@@ -188,10 +185,64 @@ $(document).ready(function () {
 	}
 	for (var i = 0; i < 1; i++) {
         box.push(new Enviroment(context, 384, 0, 6800, 360));
-        
 	}
 
-    var mario = new Mario(context,0,0);
+	//Render Pipes
+	var pipe = [];
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 28, 0 + j * 11));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 28, 0 + j * 11));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 28, 40 + j * 11));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 28, 40 + j * 11));
+	}
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 38, 0 + j * 10));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 38, 0 + j * 10));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 38, 40 + j * 10));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 38, 40 + j * 10));
+		pipe.push(new Enviroment(context, 0, 145, 0 + j * 38, 80 + j * 10));
+		pipe.push(new Enviroment(context, 16, 145, 40 + j * 38, 80 + j * 10));
+	}
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 46, 0 + j * 9));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 46, 0 + j * 9));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 46, 40 + j * 9));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 46, 40 + j * 9));
+		pipe.push(new Enviroment(context, 0, 145, 0 + j * 46, 80 + j * 9));
+		pipe.push(new Enviroment(context, 16, 145, 40 + j * 46, 80 + j * 9));
+		pipe.push(new Enviroment(context, 0, 145, 0 + j * 46, 120 + j * 9));
+		pipe.push(new Enviroment(context, 16, 145, 40 + j * 46, 120 + j * 9));
+	}
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 57, 0 + j * 9));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 57, 0 + j * 9));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 57, 40 + j * 9));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 57, 40 + j * 9));
+		pipe.push(new Enviroment(context, 0, 145, 0 + j * 57, 80 + j * 9));
+		pipe.push(new Enviroment(context, 16, 145, 40 + j * 57, 80 + j * 9));
+		pipe.push(new Enviroment(context, 0, 145, 0 + j * 57, 120 + j * 9));
+		pipe.push(new Enviroment(context, 16, 145, 40 + j * 57, 120 + j * 9));
+	}
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 163, 0 + j * 11));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 163, 0 + j * 11));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 163, 40 + j * 11));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 163, 40 + j * 11));
+	}
+	for (var i = 0; i < 1; i++) {
+		j = 40;
+		pipe.push(new Enviroment(context, 0, 128, 0 + j * 179, 0 + j * 11));
+		pipe.push(new Enviroment(context, 16, 128, 40 + j * 179, 0 + j * 11));
+		pipe.push(new Enviroment(context, 0, 144, 0 + j * 179, 40 + j * 11));
+		pipe.push(new Enviroment(context, 16, 144, 40 + j * 179, 40 + j * 11));
+	}
+
+    var mario = new Mario(context,100,480);
 
 	var TITLE = 0;
 	var LOADING = 1;
@@ -282,8 +333,8 @@ $(document).ready(function () {
 	function Update() {
 		requestAnimationFrame(Update, canvas);
 		
-		if (background.x <= -7520) {
-			background.x = -7520;
+		if (background.x <= -7600) {
+			background.x = -7600;
 		}
 		else {
 			if (pressLeft && !pressRight) {
@@ -315,6 +366,9 @@ $(document).ready(function () {
 			for (var i = 0; i < Goombas.length; i++) {
 				Goombas[i].Update(background.vx);
 			}
+			for (var i = 0; i < pipe.length; i++) {
+				pipe[i].Update(background.vx);
+			}
 		}
 		//setTimeout(Update, 1000);
 		background.Update();
@@ -333,10 +387,12 @@ $(document).ready(function () {
 		for (var i = 0; i < box.length; i++) {
 			box[i].Render();
 		}
-        mario.Render();
 		for (var i = 0; i < Goombas.length; i++) {
 			Goombas[i].Render();
 		}
-		test.Render();
+		for (var i = 0; i < pipe.length; i++) {
+			pipe[i].Render();
+		}
+		mario.Render();
 	}
 });
