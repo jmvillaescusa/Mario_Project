@@ -1,20 +1,34 @@
-var Mario = (function (context) {
-	this.sourceX = 80;
-	this.sourceY = 0;
-	this.sourceWidth = 95;
-	this.sourceHeight = 31;
-	this.width = 95;
-	this.height= 31;
-	this.x = 80;
-	this.y = 0;
-	this.vx  = 0;
-	this.vy  = 0;
+var Mario = (function (context,x,y) {
+    this.sourceX = 0;
+    this.sourceY = 0;
+    this.sourceWidth = 16;
+    this.sourceHeight = 16;
+    this.width = 16;
+    this.height = 16;
+    this.x = x;
+    this.y = y;
+    this.vx = 0;
+    this.vy = 0;
+
+    this.image = new Image();
+    this.source = "images/mario.png";
+    this.image.src = this.source;
+
+    this.numberOffFrames = 0;
+    this.currentFrame = 0;
+
+    this.Render = function () {
+        for (var i = 0; i < 1; i++) {
+            context.drawImage(this.image, this.sourceX, this.sourceY,
+                this.sourceWidth, this.sourceHeight, this.x + 0,
+                this.y + 480, this.width * 2.5, this.height * 2.5);
+            
+        }
+    }
+
+});
 	
-	this.image = new Image();
-	this.source = "images/mario.png";
-	this.image.src = this.source;
-	}
-	var marioSmall = (function (context) {
+	/*var marioSmall = (function (context) {
 	this.sourceX = 80;
 	this.sourceY = 32;
 	this.sourceWidth = 95;
@@ -30,22 +44,22 @@ var Mario = (function (context) {
 	this.source = "images/mario.png";
 	this.image.src = this.source;
 
-	var marioReady = (function (context) {
-	this.sourceX = 148;
-	this.sourceY = 0;
-	this.sourceWidth = 163;
-	this.sourceHeight = 31;
-	this.width = 163;
-	this.height= 31;
-	this.x = 0;
-	this.y = 0;
-	this.vx  = 0;
-	this.vy  = 0;
-	}
-	this.image = new Image();
-	this.source = "images/mario.png";
-	this.image.src = this.source;
+        var marioReady = (function (context) {
+            this.sourceX = 148;
+            this.sourceY = 0;
+            this.sourceWidth = 163;
+            this.sourceHeight = 31;
+            this.width = 163;
+            this.height = 31;
+            this.x = 0;
+            this.y = 0;
+            this.vx = 0;
+            this.vy = 0;
 
+            this.image = new Image();
+            this.source = "images/mario.png";
+            this.image.src = this.source;
+        
 	var smallMarioReady = (function (context) {
 	this.sourceX = 149;
 	this.sourceY = 32;
@@ -221,4 +235,4 @@ var Mario = (function (context) {
 	this.image = new Image();
 	this.source = "images/mario.png";
 	this.image.src = this.source;
-	});
+	});*/
