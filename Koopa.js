@@ -1,11 +1,11 @@
 //The sprite Object Koopa
 var Koopa = (function (context, x, y) {
-	this.sourceX =96;
-	this.sourceY = 8;
+	this.sourceX = 96;
+	this.sourceY = 0;
 	this.sourceWidth = 16;
-	this.sourceHeight = 23;
+	this.sourceHeight = 32;
 	this.width = 16;
-	this.height = 23;
+	this.height = 32;
 
 	this.x = x;
 	this.y = y;
@@ -24,7 +24,7 @@ var Koopa = (function (context, x, y) {
 
 	this.UpdateAnimation = function () {
 		this.sourceX = this.currentFrame * this.sourceWidth;
-
+		d
 		if (this.currentFrame < this.numberOfFrames) {
 			this.currentFrame++;
 			if (this.currentFrame === this.numberOfFrames) {
@@ -49,7 +49,7 @@ var Koopa = (function (context, x, y) {
 		for (var i = 0; i < 1; i++) {
 			context.drawImage(this.image, this.sourceX, this.sourceY,
 				this.sourceWidth, this.sourceHeight, this.x,
-				this.y, this.width * 2.5, this.height * 2.5);
+				this.y - 40, this.width * 2.5, this.height * 2.5);
 		}
 	}
 
