@@ -11,10 +11,15 @@
 	<script type="text/javascript" src="background.js"></script>
 	<script type="text/javascript" src="Mario.js"></script>
 	<script type="text/javascript" src="items.js"></script>
+	<script type="text/javascript" src="collision.js"></script>
+	<script type="text/javascript" src="HUD.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<canvas width="640" height="600"></canvas>
-	<!--<canvas id="HUD" width="800" height="600"></canvas>-->
+	<div id="wrapper">
+		<canvas  id="game" width="640" height="600" style="z-index: -1"></canvas>
+		<canvas id="HUD" width="640" height="600" style="z-index: 0"></canvas>
+	</div>
 	<h3>Controls</h3>
 	<p>WASD or Arrow Keys - D-Pad</p>
 	<p>L or Z - A Button</p>

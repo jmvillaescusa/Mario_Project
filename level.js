@@ -26,4 +26,21 @@ var Enviroment = (function (context, sourceX,sourceY,x,y) {
 	this.Render = function () {
 		context.drawImage(this.image, this.sourceX, this.sourceY, this.sourceWidth, this.sourceHeight, Math.floor(this.x), Math.floor(this.y), this.width * 2.5, this.height * 2.5);
 	}
+
+	//Getters
+	this.centerX = function () {
+		return this.x + (this.width / 2);
+	}
+
+	this.centerY = function () {
+		return this.y + (this.height / 2);
+	}
+
+	this.halfWidth = function () {
+		return this.width / 2;
+	}
+
+	this.halfHeight = function () {
+		return this.height / 2;
+	}
 });

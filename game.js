@@ -1,5 +1,5 @@
 $(document).ready(function () {
-	var canvas = $("canvas");
+	var canvas = $("#game");
 	var context = canvas.get(0).getContext("2d");
 
 	var background = new Background(context);
@@ -378,6 +378,13 @@ $(document).ready(function () {
 					}
 				}
 			}
+			if (pressUp && !pressDown) {
+				mario.y -= 4;
+			}
+			if (pressDown && !pressUp) {
+				mario.y += 4;
+			}
+
 			//Updating sprites as backgroung scrolls
 			for (var i = 0; i < floor.length; i++) {
 				floor[i].Update(background.vx);
@@ -403,13 +410,28 @@ $(document).ready(function () {
 
 		}
 
+		//Collision with level
+		for (var i = 0; i < brick.length; i++) {
+			var collisionSide = new collision(mario, brick[i]);
+			if (collisionSide === "bottom" && mario.vy >= 0) {
+				//mario.isOnGround = true;
+				//mario.vy = -mario.gravity;
+				mario.vy = 0;
+			} else if (collisionSide === "top" && mario.vx >= 0) {
+				mario.vx = 1;
+			} else if (collisionSide === "left" && mario.vx <= 0) {
+				mario.vx = 0;
+			} else if (collisionSide === "right" && mario.vx >= 0) {
+				mario.vx = 0;
+			}
+			if (collisionSide !== "bottom" && mario.vy > 0) {
+				mario.isOnGround = false;
+			}
+		} 
+
+
 		//setTimeout(Update, 1000);
 		background.Update();
-
-
-		function collisionSide(mario, r2) {
-
-		} 
 
 		//Make the Goomba move
 		Goombas[0].x--;
