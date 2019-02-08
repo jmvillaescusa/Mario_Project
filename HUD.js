@@ -23,6 +23,11 @@ $(document).ready(function () {
 		ctx.drawImage(image, 3, 460, 7, 7, 140, 60, 7 * 2.5, 7 * 2.5);
 		ctx.drawImage(image, 3, 460, 7, 7, 160, 60, 7 * 2.5, 7 * 2.5);
 
+		ctx.drawImage(image, 92, 19, 7, 7, 220, 60, 7 * 2.5, 7 * 2.5);
+		ctx.drawImage(image, 75, 476, 7, 7, 240, 60, 7 * 2.5, 7 * 2.5);
+		ctx.drawImage(image, 3, 460, 7, 7, 260, 60, 7 * 2.5, 7 * 2.5);
+		ctx.drawImage(image, 3, 460, 7, 7, 280, 60, 7 * 2.5, 7 * 2.5);
+
 		ctx.drawImage(image, 3, 476, 7, 7, 360, 40, 7 * 2.5, 7 * 2.5);
 		ctx.drawImage(image, 67, 468, 7, 7, 380, 40, 7 * 2.5, 7 * 2.5);
 		ctx.drawImage(image, 91, 468, 7, 7, 400, 40, 7 * 2.5, 7 * 2.5);
