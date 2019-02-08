@@ -1,4 +1,4 @@
-var Item = (function (context, sourceX, sourceY, x, y) {
+var powerUp = (function (context, sourceX, sourceY, x, y) {
 	this.sourceX = sourceX;
 	this.sourceY = sourceY;
 	this.sourceWidth = 16;
@@ -7,6 +7,9 @@ var Item = (function (context, sourceX, sourceY, x, y) {
 	this.y = y;
 	this.width = 16;
 	this.height = 16;
+
+	this.vx = 0;
+	this.vy = 0;
 
 	this.image = new Image();
 	this.source = "images/items.png";
