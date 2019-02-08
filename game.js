@@ -370,7 +370,86 @@ $(document).ready(function () {
 					if (pressB) {
 						background.vx = -9;
 					}
-				}
+                }
+               /* mario.vx += mario.accelerationX;
+                mario.vy += mario.accelerationY;
+
+                mario.vx *= mario.frictoin;
+
+                mario.vy += mario.gravity;
+
+                if (mario.vx > mario.speedLimit) {
+                    mario.vx = mario.speedLimit;
+                }
+
+                if (mario.vx < -mario.speedLimit) {
+                    mario.vx = -mario.speedLimit;
+                }
+
+                if (mario.vy > mario.speedlimit) {
+                    mario.vy = mario.speedLimit;
+                }
+
+                if (mario.vy < -mario.speedLimit) {
+                    mario.vy = -mario.speedlimit;
+                }
+
+                if (pressUp && !pressDown) {
+                    mario.accelerationY = -0.2;
+                    mario.gravity = 0;
+                    mario.friction = 1;
+                }
+
+                if (!pressUp && !pressDown && !pressLeft && !pressRight) {
+                    mario.friction = 0.96;
+                    mario.gravity = 0.3;
+                }
+
+                if (mario.vx > speedLimit) {
+                    mario.vx = mario.speedLimit;
+                }
+
+                if (mario.vx < -mario.speedLimit) {
+                    mario.vx = -mario.speedLimit;
+                }
+
+                if (mario.vy > mario.speedLimit * 2) {
+                    cat.vy = cat.speedLimit * 2;
+                }
+
+                if (mario.vy < -mario.speedLimit) {
+                    mario.vy = -mario.speedLimit;
+                }
+
+                if (mario.y + mario.height > canvas.height) {
+                    mario.y = canvas.height - mario.height;
+                    mario.isOnGround = true;
+                    mario.vy = - cat.gravity;
+                }
+
+                if (pressUp && mario.isOnGround) {
+                    mario.vy += mario.jumpForce;
+                    mario.isOnGround = false;
+                    mario.friction = 1;
+                }
+
+                if (mario.vx > mario.speedLimit) {
+                    mario.vx = mario.speedLimit;
+                }
+
+                if (mario.vx < -mario.speedLimit) {
+                    mario.vx = -mario.speedLimit;
+                }
+
+                if (mario.vy > mario.speedLimit * 2) {
+                    mario.vy = mario.speedLimit * 2;
+                }
+
+                if (mario.isOnGround) {
+                    mario.vx *= mario.friction;
+                }*/
+
+
 				else {
 					mario.x += 4;
 					if (pressRight && !pressLeft && pressB) {
