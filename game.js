@@ -282,63 +282,47 @@ $(document).ready(function () {
 	window.addEventListener("keydown", function (event) {
 		switch (event.keyCode) {
 			case 38:
-			case 87:
 				pressUp = true;
 				break;
 			case 37:
-			case 65:
 				pressLeft = true;
 				break;
 			case 40:
-			case 83:
 				pressDown = true;
 				break;
 			case 39:
-			case 68:
 				pressRight = true;
 				break;
 			case 90:
-			case 76:
 				pressA = true;
 				break;
 			case 88:
-			case 75:
 				pressB = true;
 				break;
-			case 72:
-				pressStart = true;
 		}
 	}, false);
 	window.addEventListener("keyup", function (event) {
 		switch (event.keyCode) {
 			case 38:
-			case 87:
 				pressUp = false;
 				break;
 			case 37:
-			case 65:
 				pressLeft = false;
 				background.vx = 0;
 				break;
 			case 40:
-			case 83:
 				pressDown = false;
 				break;
 			case 39:
-			case 68:
 				pressRight = false;
 				background.vx = 0;
 				break;
 			case 90:
-			case 76:
 				pressA = false;
 				break;
 			case 88:
-			case 75:
 				pressB = false;
 				break;
-			case 72:
-				pressStart = false;
 		}
 	}, false);
 
