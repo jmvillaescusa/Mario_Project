@@ -361,7 +361,7 @@ $(document).ready(function () {
 					mario.x = (context.canvas.width * 0);
 				}
 				if (pressLeft && !pressRight && pressB) {
-					mario.x -= 8;
+					mario.x -= 8; 
 				}
 			}
 			if (pressRight && !pressLeft) {
@@ -371,7 +371,7 @@ $(document).ready(function () {
 						background.vx = -9;
 					}
                 }
-               /* mario.vx += mario.accelerationX;
+               /*mario.vx += mario.accelerationX;
                 mario.vy += mario.accelerationY;
 
                 mario.vx *= mario.frictoin;
@@ -391,7 +391,7 @@ $(document).ready(function () {
                 }
 
                 if (mario.vy < -mario.speedLimit) {
-                    mario.vy = -mario.speedlimit;
+                    mario.vy = -mario.speedLimit;
                 }
 
                 if (pressUp && !pressDown) {
@@ -414,7 +414,7 @@ $(document).ready(function () {
                 }
 
                 if (mario.vy > mario.speedLimit * 2) {
-                    cat.vy = cat.speedLimit * 2;
+                    mario.vy = cat.speedLimit * 2;
                 }
 
                 if (mario.vy < -mario.speedLimit) {
